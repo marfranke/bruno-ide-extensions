@@ -1,7 +1,6 @@
-package com.usebruno.plugin.bruno.styles;
+package com.usebruno.plugin.bruno.language;
 
 import com.intellij.openapi.fileTypes.LanguageFileType;
-import com.intellij.openapi.fileTypes.PlainTextLanguage;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
@@ -11,7 +10,7 @@ public class BruFileType extends LanguageFileType {
     public static final String DEFAULT_EXTENSION = "bru";
 
     private BruFileType() {
-        super(PlainTextLanguage.INSTANCE);
+        super(BruLanguage.INSTANCE);
     }
 
 
@@ -24,7 +23,7 @@ public class BruFileType extends LanguageFileType {
     @NotNull
     @Override
     public String getDescription() {
-        return "Bru File Type";
+        return "Bru request file";
     }
 
     @NotNull
@@ -35,7 +34,7 @@ public class BruFileType extends LanguageFileType {
 
     @Override
     public Icon getIcon() {
-        return null;
+        return BruIcons.FILE_TYPE;
     }
 }
 

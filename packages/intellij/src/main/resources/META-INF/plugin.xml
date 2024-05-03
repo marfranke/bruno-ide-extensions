@@ -30,6 +30,12 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-        <codeStyleSettingsProvider implementation="resources/bruno.tmLanguage.json"/>
+        <fileType
+                name="Bru File"
+                implementationClass="com.usebruno.plugin.bruno.language.BruFileType"
+                fieldName="INSTANCE"
+                language="Bru"
+                extensions="bru"
+        />
     </extensions>
 </idea-plugin>
