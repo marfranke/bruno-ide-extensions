@@ -41,5 +41,8 @@
                 language="Bru"
                 implementationClass="com.usebruno.plugin.bruno.language.BruParserDefinition"
         />
+        <lang.syntaxHighlighterFactory
+                language="Bru"
+                implementationClass="com.usebruno.plugin.bruno.language.BruSyntaxHighlighterFactory"/>
     </extensions>
 </idea-plugin>
