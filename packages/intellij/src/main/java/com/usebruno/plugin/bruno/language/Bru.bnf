@@ -1,0 +1,20 @@
+{
+  parserClass="com.usebruno.plugin.bruno.language.parser.BruParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Bru"
+  psiImplClassSuffix="Impl"
+  psiPackage="com.usebruno.plugin.bruno.language.psi"
+  psiImplPackage="com.usebruno.plugin.bruno.language.psi.impl"
+
+  elementTypeHolderClass="com.usebruno.plugin.bruno.language.psi.BruTypes"
+  elementTypeClass="com.usebruno.plugin.bruno.language.psi.BruElementType"
+  tokenTypeClass="com.usebruno.plugin.bruno.language.psi.BruTokenType"
+}
+
+bruFile ::= tag*
+
+tag ::= (TAG_META|TAG_HTTP|TAG_HEADERS|TAG_QUERY|TAG_VARS|TAG_AUTH|TAG_ASSERT|TAG_BODY) BLOCK_BEGIN dictionaryEntry* BLOCK_END
+
+dictionaryEntry ::= DICTIONARY_KEY SEPARATOR DICTIONARY_VALUE
