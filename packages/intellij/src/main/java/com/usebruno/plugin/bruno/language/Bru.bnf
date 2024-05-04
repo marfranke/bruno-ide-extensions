@@ -15,6 +15,11 @@
 
 bruFile ::= tag*
 
-tag ::= (TAG_META|TAG_HTTP|TAG_HEADERS|TAG_QUERY|TAG_VARS|TAG_AUTH|TAG_ASSERT|TAG_BODY) BLOCK_BEGIN dictionaryEntry* BLOCK_END
+tag ::= (dictionaryTag|textTag)
+private dictionaryTag ::= (TAG_META|TAG_HTTP|TAG_HEADERS|TAG_QUERY|TAG_VARS|TAG_AUTH|TAG_ASSERT|TAG_BODY_DICTIONARY) BLOCK_BEGIN dictionary BLOCK_END
+private textTag ::= (TAG_BODY_TEXT|TAG_SCRIPT|TAG_TEST|TAG_DOCS) BLOCK_BEGIN textBlock BLOCK_END
 
+dictionary ::= dictionaryEntry*
 dictionaryEntry ::= DICTIONARY_KEY SEPARATOR DICTIONARY_VALUE
+
+textBlock ::= TEXT_LINE*
