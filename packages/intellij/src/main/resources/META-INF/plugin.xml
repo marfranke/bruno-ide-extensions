@@ -43,6 +43,14 @@
         />
         <lang.syntaxHighlighterFactory
                 language="Bru"
-                implementationClass="com.usebruno.plugin.bruno.language.BruSyntaxHighlighterFactory"/>
+                implementationClass="com.usebruno.plugin.bruno.language.BruSyntaxHighlighterFactory"
+        />
+        <languageInjectionContributor
+                implementationClass="com.usebruno.plugin.bruno.language.injection.BruInjector"
+                language="Bru"
+        />
+        <lang.elementManipulator
+                forClass="com.usebruno.plugin.bruno.language.psi.impl.BruTextBlockImpl"
+                implementationClass="com.usebruno.plugin.bruno.language.injection.TextBlockManipulator"/>
     </extensions>
 </idea-plugin>

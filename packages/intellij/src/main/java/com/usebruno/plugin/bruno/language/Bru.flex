@@ -17,7 +17,7 @@ import com.usebruno.plugin.bruno.language.psi.BruTypes;
 
 
 BEGIN_OF_BLOCK=\{
-END_OF_BLOCK=\R}
+END_OF_BLOCK=}
 
 NON_CLRF_WHITESPACE=[ \t\f]
 WHITESPACE=\s
@@ -84,11 +84,11 @@ TAGS_DOCS=docs
 
 <WAITING_FOR_DICTIONARY_VALUE> {VALUE_CHAR}*                { yybegin(WAITING_FOR_DICTIONARY_KEY); return BruTypes.DICTIONARY_VALUE; }
 
-<WAITING_FOR_TEXT> {BEGIN_OF_BLOCK}                         { yybegin(WAITING_FOR_TEXT_LINE); return BruTypes.BLOCK_BEGIN; }
+<WAITING_FOR_TEXT> {BEGIN_OF_BLOCK}{CRLF}                   { yybegin(WAITING_FOR_TEXT_LINE); return BruTypes.BLOCK_BEGIN; }
 <WAITING_FOR_TEXT> {NON_CLRF_WHITESPACE}+                   { yybegin(WAITING_FOR_TEXT); return TokenType.WHITE_SPACE; }
 
 <WAITING_FOR_TEXT_LINE> {END_OF_BLOCK}                      { yybegin(YYINITIAL); return BruTypes.BLOCK_END; }
-<WAITING_FOR_TEXT_LINE> {VALUE_CHAR}*                       { yybegin(WAITING_FOR_TEXT_LINE); return BruTypes.TEXT_LINE; }
-<WAITING_FOR_TEXT_LINE> {CRLF}                              { yybegin(WAITING_FOR_TEXT_LINE); return TokenType.WHITE_SPACE; }
+<WAITING_FOR_TEXT_LINE> [^}\r\n]{VALUE_CHAR}*{CRLF}         { yybegin(WAITING_FOR_TEXT_LINE); return BruTypes.TEXT_LINE; }
+<WAITING_FOR_TEXT_LINE> {CRLF}                              { yybegin(WAITING_FOR_TEXT_LINE); return BruTypes.TEXT_LINE; }
 
 [^]                                                         { return TokenType.BAD_CHARACTER; }

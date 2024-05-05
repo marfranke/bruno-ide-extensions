@@ -1,8 +1,8 @@
 package com.usebruno.plugin.bruno.language;
 
-import javax.swing.Icon;
-
 import com.intellij.openapi.util.IconLoader;
+
+import javax.swing.*;
 
 public class BruIcons {
 

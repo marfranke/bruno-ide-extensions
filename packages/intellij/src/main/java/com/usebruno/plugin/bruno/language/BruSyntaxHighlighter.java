@@ -28,7 +28,7 @@ public class BruSyntaxHighlighter extends SyntaxHighlighterBase {
     public static final TextAttributesKey BLOCK_BRACKETS = createTextAttributesKey("BRU_BLOCK_BRACKETS", BRACKETS);
     public static final TextAttributesKey DICTIONARY_KEY = createTextAttributesKey("BRU_DICTIONARY_KEY", INSTANCE_FIELD);
     public static final TextAttributesKey SEPARATOR = createTextAttributesKey("BRU_SEPARATOR", OPERATION_SIGN);
-    public static final TextAttributesKey DICTIONARY_VALUE = createTextAttributesKey("BRU_DICTIONARY_KEY", STRING);
+    public static final TextAttributesKey DICTIONARY_VALUE = createTextAttributesKey("BRU_DICTIONARY_VALUE", STRING);
     public static final TextAttributesKey TEXT_LINE = createTextAttributesKey("BRU_TEXT_LINE", STRING);
     public static final TextAttributesKey BAD_CHARACTER = createTextAttributesKey("BRU_BAD_CHARACTER", HighlighterColors.BAD_CHARACTER);
 
